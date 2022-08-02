@@ -1,0 +1,131 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>choose-license</ToolCommandName>
+        <PackageOutputPath>../nupkg</PackageOutputPath>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageId>choose-license</PackageId>
+        <Authors>Khalid Abuhakmeh</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>OSS, Licenses</PackageTags>
+        <PackageIcon>icon.png</PackageIcon>
+        <Description>
+            Helps generate licenses that are sourced from Choose A License (choosealicense.com).
+        </Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Data\Licenses" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="icon.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Markdig" Version="0.30.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+        <PackageReference Include="Spectre.Console" Version="0.44.1-preview.0.29" />
+        <PackageReference Include="Spectre.Console.Cli" Version="0.44.1-preview.0.29" />
+        <PackageReference Include="YamlDotNet" Version="12.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Data\rules.yml" />
+        <EmbeddedResource Include="Data\rules.yml" LogicalName="rules.yml" />
+        <None Remove="Data\Licenses\0bsd.txt" />
+        <EmbeddedResource Include="Data\Licenses\0bsd.txt" />
+        <None Remove="Data\Licenses\afl-3.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\afl-3.0.txt" />
+        <None Remove="Data\Licenses\agpl-3.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\agpl-3.0.txt" />
+        <None Remove="Data\Licenses\apache-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\apache-2.0.txt" />
+        <None Remove="Data\Licenses\artistic-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\artistic-2.0.txt" />
+        <None Remove="Data\Licenses\bsd-2-clause.txt" />
+        <EmbeddedResource Include="Data\Licenses\bsd-2-clause.txt" />
+        <None Remove="Data\Licenses\bsd-3-clause.txt" />
+        <EmbeddedResource Include="Data\Licenses\bsd-3-clause.txt" />
+        <None Remove="Data\Licenses\bsd-3-clause-clear.txt" />
+        <EmbeddedResource Include="Data\Licenses\bsd-3-clause-clear.txt" />
+        <None Remove="Data\Licenses\bsd-4-clause.txt" />
+        <EmbeddedResource Include="Data\Licenses\bsd-4-clause.txt" />
+        <None Remove="Data\Licenses\bsl-1.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\bsl-1.0.txt" />
+        <None Remove="Data\Licenses\cc-by-4.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\cc-by-4.0.txt" />
+        <None Remove="Data\Licenses\cc-by-sa-4.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\cc-by-sa-4.0.txt" />
+        <None Remove="Data\Licenses\cc0-1.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\cc0-1.0.txt" />
+        <None Remove="Data\Licenses\cecill-2.1.txt" />
+        <EmbeddedResource Include="Data\Licenses\cecill-2.1.txt" />
+        <None Remove="Data\Licenses\cern-ohl-p-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\cern-ohl-p-2.0.txt" />
+        <None Remove="Data\Licenses\cern-ohl-s-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\cern-ohl-s-2.0.txt" />
+        <None Remove="Data\Licenses\cern-ohl-w-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\cern-ohl-w-2.0.txt" />
+        <None Remove="Data\Licenses\ecl-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\ecl-2.0.txt" />
+        <None Remove="Data\Licenses\epl-1.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\epl-1.0.txt" />
+        <None Remove="Data\Licenses\epl-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\epl-2.0.txt" />
+        <None Remove="Data\Licenses\eupl-1.1.txt" />
+        <EmbeddedResource Include="Data\Licenses\eupl-1.1.txt" />
+        <None Remove="Data\Licenses\eupl-1.2.txt" />
+        <EmbeddedResource Include="Data\Licenses\eupl-1.2.txt" />
+        <None Remove="Data\Licenses\gpl-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\gpl-2.0.txt" />
+        <None Remove="Data\Licenses\gpl-3.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\gpl-3.0.txt" />
+        <None Remove="Data\Licenses\isc.txt" />
+        <EmbeddedResource Include="Data\Licenses\isc.txt" />
+        <None Remove="Data\Licenses\lgpl-2.1.txt" />
+        <EmbeddedResource Include="Data\Licenses\lgpl-2.1.txt" />
+        <None Remove="Data\Licenses\lgpl-3.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\lgpl-3.0.txt" />
+        <None Remove="Data\Licenses\lppl-1.3c.txt" />
+        <EmbeddedResource Include="Data\Licenses\lppl-1.3c.txt" />
+        <None Remove="Data\Licenses\mit.txt" />
+        <EmbeddedResource Include="Data\Licenses\mit.txt" />
+        <None Remove="Data\Licenses\mit-0.txt" />
+        <EmbeddedResource Include="Data\Licenses\mit-0.txt" />
+        <None Remove="Data\Licenses\mpl-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\mpl-2.0.txt" />
+        <None Remove="Data\Licenses\ms-pl.txt" />
+        <EmbeddedResource Include="Data\Licenses\ms-pl.txt" />
+        <None Remove="Data\Licenses\ms-rl.txt" />
+        <EmbeddedResource Include="Data\Licenses\ms-rl.txt" />
+        <None Remove="Data\Licenses\mulanpsl-2.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\mulanpsl-2.0.txt" />
+        <None Remove="Data\Licenses\ncsa.txt" />
+        <EmbeddedResource Include="Data\Licenses\ncsa.txt" />
+        <None Remove="Data\Licenses\odbl-1.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\odbl-1.0.txt" />
+        <None Remove="Data\Licenses\ofl-1.1.txt" />
+        <EmbeddedResource Include="Data\Licenses\ofl-1.1.txt" />
+        <None Remove="Data\Licenses\osl-3.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\osl-3.0.txt" />
+        <None Remove="Data\Licenses\postgresql.txt" />
+        <EmbeddedResource Include="Data\Licenses\postgresql.txt" />
+        <None Remove="Data\Licenses\unlicense.txt" />
+        <EmbeddedResource Include="Data\Licenses\unlicense.txt" />
+        <None Remove="Data\Licenses\upl-1.0.txt" />
+        <EmbeddedResource Include="Data\Licenses\upl-1.0.txt" />
+        <None Remove="Data\Licenses\vim.txt" />
+        <EmbeddedResource Include="Data\Licenses\vim.txt" />
+        <None Remove="Data\Licenses\wtfpl.txt" />
+        <EmbeddedResource Include="Data\Licenses\wtfpl.txt" />
+        <None Remove="Data\Licenses\zlib.txt" />
+        <EmbeddedResource Include="Data\Licenses\zlib.txt" />
+    </ItemGroup>
+
+</Project>
