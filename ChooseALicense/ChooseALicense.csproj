@@ -8,12 +8,17 @@
         <PackAsTool>true</PackAsTool>
         <ToolCommandName>choose-license</ToolCommandName>
         <PackageOutputPath>../nupkg</PackageOutputPath>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.1.0</PackageVersion>
         <PackageId>choose-license</PackageId>
         <Authors>Khalid Abuhakmeh</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>OSS, Licenses</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/khalidabuhakmeh/ChooseALicense-Cli</PackageProjectUrl>
+        <PackageReleaseNotes>
+            - Added `new` options for name and year
+            - Added Environment variable of `CHOOSELICENSE_NAME`
+        </PackageReleaseNotes>
         <Description>
             Helps generate licenses that are sourced from Choose A License (choosealicense.com).
         </Description>

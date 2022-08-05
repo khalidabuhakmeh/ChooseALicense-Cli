@@ -25,6 +25,14 @@ public class NewCommand : Command<NewCommand.Settings>
         [CommandOption("-o|--output")] 
         [Description("relative file path to create the license file (include the file name). default: \"License.md\"")]
         public string? Output { get; set; } = "LICENSE.md";
+        
+        [CommandOption("-n|--name")]
+        [Description("Name of the license holder (will replace any instance of [name] in license).\nAlso Reads Environment Variable: CHOOSELICENSE_NAME")]
+        public string? Name { get; set; }
+        
+        [CommandOption("-y|--year")]
+        [Description("Name of the license holder (will replace any instance of [name] in license).")]
+        public string? Year { get; set; }
     }
 
     public override int Execute(CommandContext context, Settings settings)
@@ -34,10 +42,20 @@ public class NewCommand : Command<NewCommand.Settings>
         if (license is { })
         {
             var output = Path.Combine(Environment.CurrentDirectory, settings.Output ?? "LICENSE.md");
+            var name = settings.Name ?? Environment.GetEnvironmentVariable("CHOOSELICENSE_NAME") ?? "[fullname]";
+            var year = settings.Year ?? DateTime.Now.Year.ToString();
+            
+            var text = license.Text
+                .Replace("[year]", year)
+                .Replace("[fullname]", name);
+
             File.Delete(output);
-            File.WriteAllText(output, license.Text);
-            AnsiConsole.MarkupLine($"Successfully created the license [green]\"{license.Title}\"[/] at [green]{output}[/]");
-            AnsiConsole.MarkupLine($"[yellow]Next steps:\n{license.How.EscapeMarkup()}[/]");
+            File.WriteAllText(output, text);
+            
+            AnsiConsole.MarkupLine($"[yellow]⚠️ This license is NOT LEGAL ADVICE. ⚠️[/]");
+            AnsiConsole.MarkupLine($"✅ Successfully created the license [green]\"{license.Title}\"[/] at [green]{output}[/]");
+            AnsiConsole.MarkupLine($"🤖License assigned to \"{name}\" for \"{year}\".");
+
             return 0;
         }
 
