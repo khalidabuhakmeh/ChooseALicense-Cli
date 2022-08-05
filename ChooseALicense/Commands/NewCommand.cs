@@ -53,8 +53,8 @@ public class NewCommand : Command<NewCommand.Settings>
             File.WriteAllText(output, text);
             
             AnsiConsole.MarkupLine($"[yellow]⚠️ This license is NOT LEGAL ADVICE. ⚠️[/]");
-            AnsiConsole.MarkupLine($"✅ Successfully created the license [green]\"{license.Title}\"[/] at [green]{output}[/]");
-            AnsiConsole.MarkupLine($"🤖License assigned to \"{name}\" for \"{year}\".");
+            AnsiConsole.MarkupLine($"✅ Successfully created the license [green]\"{license.Title.EscapeMarkup()}\"[/] at [green]{output.EscapeMarkup()}[/]");
+            AnsiConsole.MarkupLine($"🤖 License assigned to \"{name.EscapeMarkup()}\" for \"{year.EscapeMarkup()}\".");
 
             return 0;
         }
